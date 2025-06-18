@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="en">
+
+<head>
+	<title>Giải pháp Phần mềm Quản trị Trường học số UniSoft - Thiên An</title>
+	<meta name="keywords"
+		content="UniSoft; Phần mềm quản lý đào tạo; Phần mềm quản lý đào tạo tín chỉ; Phần mềm Quản trị đại học số" />
+	<meta charset="utf-8" content="" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0 ,shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link href="apple-touch-icon.png" rel="apple-touch-icon" />
+	<link href="favicon.ico" rel="icon" />
+	<meta name="author" content="Thiên An" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="/css/style-sys.css" />
+	<link rel="stylesheet" href="/css/UniPortal.css" />
+	<script src="/plugins/jquery.min.js" type="text/jscript"></script>
+	<script src="/plugins/tailwind/tailwind3.4.4.js" type="text/jscript"></script>
+	<script src="/plugins/fancybox/jquery.fancybox3.5.6.min.js" type="text/jscript"></script>
+	<script src="/js/main-sys.js" type="text/jscript"></script>
+	<style type="text/css">
+		p.small {
+			color: #10c73b;
+			line-height: 1.0;
+			font-size: 14px;
+		}
+
+		p.hocthuong {
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 1.8;
+		}
+
+		p.nghihoc {
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 1.8;
+			background-color: red;
+			color: white;
+		}
+
+		p.hocbu {
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 1.8;
+			background-color: blueviolet;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<form name="formSV" method="post" action="./wfrmLichHocSinhVienTinChi.aspx" id="formSV">
+		<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE2MjY5Nzc5NzgPZBYCAgEPZBYIAgEPZBYOAgcPZBYIAgcPFgIeB1Zpc2libGVoZAILDxYCHwBoZAINDxYCHwBoZAIPDxYCHwBoZAITDxYCHwBoZAIVDxYCHwBoZAIdD2QWAgIBDxYCHgRocmVmBStodHRwczovL2Rldi5raGFvc2F0LmhvdS5lZHUudm4vbG9naW4tcG9ydGFsZAIfDxYCHwBoZAIhDxYCHwBoZAIjDxYCHwBoZAIDD2QWBgIBDxYCHgNzcmMFFVxJbWFnZXNcbm9fYXZhdGFyLnBuZ2QCAw8PFgIeBFRleHQFE05ndXnhu4VuIFRo4buLIFRoxqFkZAIFDw8WAh8DBQwyMkExMDAxRDAzMDdkZAIJDxAPFgYeDkRhdGFWYWx1ZUZpZWxkBQhUdWFuX2hvYx4NRGF0YVRleHRGaWVsZAUMVGVuX3R1YW5faG9jHgtfIURhdGFCb3VuZGdkEBUcP1R14bqnbiB0aOG7qTogOCAoVOG7qyBuZ8OgeSAxNy8wMi8yMDI1IMSR4bq/biBuZ8OgeSAyMy8wMi8yMDI1KT9UdeG6p24gdGjhu6k6IDkgKFThu6sgbmfDoHkgMjQvMDIvMjAyNSDEkeG6v24gbmfDoHkgMDIvMDMvMjAyNSlAVHXhuqduIHRo4bupOiAxMCAoVOG7qyBuZ8OgeSAwMy8wMy8yMDI1IMSR4bq/biBuZ8OgeSAwOS8wMy8yMDI1KUBUdeG6p24gdGjhu6k6IDExIChU4burIG5nw6B5IDEwLzAzLzIwMjUgxJHhur9uIG5nw6B5IDE2LzAzLzIwMjUpQFR14bqnbiB0aOG7qTogMTIgKFThu6sgbmfDoHkgMTcvMDMvMjAyNSDEkeG6v24gbmfDoHkgMjMvMDMvMjAyNSlAVHXhuqduIHRo4bupOiAxMyAoVOG7qyBuZ8OgeSAyNC8wMy8yMDI1IMSR4bq/biBuZ8OgeSAzMC8wMy8yMDI1KUBUdeG6p24gdGjhu6k6IDE0IChU4burIG5nw6B5IDMxLzAzLzIwMjUgxJHhur9uIG5nw6B5IDA2LzA0LzIwMjUpQFR14bqnbiB0aOG7qTogMTUgKFThu6sgbmfDoHkgMDcvMDQvMjAyNSDEkeG6v24gbmfDoHkgMTMvMDQvMjAyNSlAVHXhuqduIHRo4bupOiAxNiAoVOG7qyBuZ8OgeSAxNC8wNC8yMDI1IMSR4bq/biBuZ8OgeSAyMC8wNC8yMDI1KUBUdeG6p24gdGjhu6k6IDE3IChU4burIG5nw6B5IDIxLzA0LzIwMjUgxJHhur9uIG5nw6B5IDI3LzA0LzIwMjUpQFR14bqnbiB0aOG7qTogMTggKFThu6sgbmfDoHkgMjgvMDQvMjAyNSDEkeG6v24gbmfDoHkgMDQvMDUvMjAyNSlAVHXhuqduIHRo4bupOiAxOSAoVOG7qyBuZ8OgeSAwNS8wNS8yMDI1IMSR4bq/biBuZ8OgeSAxMS8wNS8yMDI1KUBUdeG6p24gdGjhu6k6IDIwIChU4burIG5nw6B5IDEyLzA1LzIwMjUgxJHhur9uIG5nw6B5IDE4LzA1LzIwMjUpQFR14bqnbiB0aOG7qTogMjEgKFThu6sgbmfDoHkgMTkvMDUvMjAyNSDEkeG6v24gbmfDoHkgMjUvMDUvMjAyNSlAVHXhuqduIHRo4bupOiAyMiAoVOG7qyBuZ8OgeSAyNi8wNS8yMDI1IMSR4bq/biBuZ8OgeSAwMS8wNi8yMDI1KUBUdeG6p24gdGjhu6k6IDIzIChU4burIG5nw6B5IDAyLzA2LzIwMjUgxJHhur9uIG5nw6B5IDA4LzA2LzIwMjUpQFR14bqnbiB0aOG7qTogMjQgKFThu6sgbmfDoHkgMDkvMDYvMjAyNSDEkeG6v24gbmfDoHkgMTUvMDYvMjAyNSlAVHXhuqduIHRo4bupOiAyNSAoVOG7qyBuZ8OgeSAxNi8wNi8yMDI1IMSR4bq/biBuZ8OgeSAyMi8wNi8yMDI1KUBUdeG6p24gdGjhu6k6IDI2IChU4burIG5nw6B5IDIzLzA2LzIwMjUgxJHhur9uIG5nw6B5IDI5LzA2LzIwMjUpQFR14bqnbiB0aOG7qTogMjcgKFThu6sgbmfDoHkgMzAvMDYvMjAyNSDEkeG6v24gbmfDoHkgMDYvMDcvMjAyNSlAVHXhuqduIHRo4bupOiAyOCAoVOG7qyBuZ8OgeSAwNy8wNy8yMDI1IMSR4bq/biBuZ8OgeSAxMy8wNy8yMDI1KUBUdeG6p24gdGjhu6k6IDI5IChU4burIG5nw6B5IDE0LzA3LzIwMjUgxJHhur9uIG5nw6B5IDIwLzA3LzIwMjUpQFR1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" />
+
+		<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="4E051A43" />
+		<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAB30JDmeC+CSeSaqFhT/+s3QtmiUkf1QH9AOq6KjzJY8V3HtJSAddQxXmsWrEmqGgFqdkb2oeJMGMSwUyIRlbGWQYd3HDWr40Anh/sjRXrVAGweNjCTxvKxj/J3+cLWDab7cMSVXWOhmvD8Ulf+Lh/8bOEUFOkhzivJW2oKKaTbHdsKxYaAI8z74awCtevIjCuNNPjxG/wml2/K5Mex4sc/RfJmoiCkx4YAo0TAZ2+7seHVhoMRrzS8cspi+T6w6BGQRSbPUW9EjFTOVyfeIMR8InJm+m4Sw+DXnYXH8gpwVIxEoA4Djzp1DzQ022SJczZGARVUrxBnhbG/82tgqv3//LQO5p4LA6QzqGmKOaLBwTAecXh+TwZJdlTcqW2nTYijbpC/eLO8OrNRqSCvv9c9F34zY/awB2Py63P1YORhwdpv+ogeAAVhRbyje8VCLWxaUq38bhE3K9MQGkJ9tD/zLwVFxX+pNCLMRWrnuI2hOmdle94mmQkqTYwfetNdrAo220KtU/GQqpFbrUS6iswE1Er/wXP9Ep8HiLHKsTf7IjgeF3mq3iyf2xhvKOyX3zPx+VYPsSa7Wr0r7f8r34o4cf/XUShRp0ufMQUvMjb8xl5924gUPXLJnrwVjgsGVHHA06a6UNzuLGzenNkZUOvoX" />
+		<main>
+			<div class="vvjcxresrp">
+
+				<nav class="q8uucert2e">
+					<div class="logo">
+						<img src="/img/logo-unisoft.png" alt="">
+						<h1>Cổng Sinh Viên</h1>
+					</div>
+					<ul class="type-list active">
+
+
+						<li id="nav2_ID8010" class="txt-menu">
+							<a class="item-link" href="/wfrmHoSoSinhVien.aspx" id="A4">
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" width="14"
+									height="14">
+									<path id="Shape 2" fill-rule="evenodd" class="s0"
+										d="m12.8 4.9q-0.7 0-1.5 0c-1.4 0-2.4-0.7-2.8-1.8q-0.1-0.4-0.1-0.7 0-0.7 0-1.4-0.2 0-0.3 0-2.1 0-4.1 0c-1.2 0-1.9 0.6-1.9 1.6q0 2.7 0 5.4 0 0.1 0 0.3c0 0.3-0.2 0.5-0.6 0.5-0.3 0-0.5-0.2-0.5-0.6q0-2.9 0-5.9c0-1.2 1.2-2.2 2.6-2.3q2.7 0 5.4 0c0.1 0 0.3 0.1 0.4 0.2q2.2 1.9 4.4 3.8c0.1 0.1 0.2 0.3 0.2 0.5q0 3.5 0 7c0 1.2-0.9 2.2-2.2 2.4q-0.2 0.1-0.3 0.1c-2.7 0-5.3 0-7.9 0-1.4 0-2.6-1.1-2.6-2.3q0-0.4 0-0.8c0-0.3 0.2-0.5 0.5-0.5 0.3 0 0.6 0.2 0.6 0.5 0 0.2 0 0.5 0 0.7 0.1 0.8 0.8 1.4 1.7 1.4q3.7 0 7.4 0c0.9 0 1.7-0.6 1.7-1.4q0-3.3 0-6.6 0 0-0.1-0.1zm-0.9-1q-1.2-1-2.3-2.1c-0.3 1.5 0.7 2.3 2.3 2.1zm-5.6 3.2c-0.7-0.9-0.6-1.6 0.1-2.2 0.6-0.5 1.6-0.4 2.2 0 0.6 0.5 0.9 1.3 0.1 2.1 0.4 0.3 0.7 0.5 1 0.8q0.6 0.6 0.6 1.5c0 0.3-0.2 0.5-0.6 0.5q-2.2 0-4.4 0-0.6 0-0.6-0.5 0.1-1.3 1.3-2.1 0.1-0.1 0.3-0.1zm-0.3 1.7q0.8 0 1.5 0 0.8 0 1.5 0c-0.2-0.6-0.8-1-1.5-1-0.7 0-1.3 0.4-1.5 1zm2-2.8c0-0.2-0.2-0.5-0.5-0.5-0.3 0-0.5 0.3-0.5 0.5 0 0.3 0.2 0.5 0.5 0.5 0.3 0 0.5-0.2 0.5-0.5zm-0.5 4.4q1.1 0 2.1 0 0.7 0 0.7 0.5c0 0.3-0.2 0.5-0.6 0.5q-2.2 0-4.4 0c-0.3 0-0.6-0.2-0.6-0.5q0-0.5 0.7-0.5 1 0 2.1 0z" />
+								</svg>
+								<span class="txt-menu">SƠ YẾU LÝ LỊCH</span>
+							</a>
+						</li>
+						<li id="nav2_ID8020">
+							<a class="item-link" href="/ChuongTrinhDaoTaoSinhVien.aspx" id="CTDT">
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 147 127" width="15"
+									height="15">
+									<path id="Shape 3" fill-rule="evenodd" class="s0"
+										d="m90 76.8c-4.8 0-9.4 0-14 0.1-0.7 0-1.5 0.7-2 1.3-3.6 4.4-9.1 5.9-14.4 3.5-3.8-1.7-7.5-3.7-11.3-5.5-0.8-0.4-1.5-0.7-2.6-1.2 0 1.3 0 2.2 0 3.1q0 21.5 0 43.1c0 4.1-1.4 5.5-5.6 5.5q-12.6 0-25.2 0c-3.8 0-5.2-1.4-5.2-5.1 0-6.9-0.1-13.7 0-20.5 0-1.6-0.4-2.4-1.9-3.2-4.8-2.4-7.3-6.5-7.3-11.8 0-6-0.2-12.1 0.5-18.1 0.9-7.4 5-13.2 11.1-17.5q0.9-0.7 1.9-1.4c-10.4-11-7.1-23.3-0.4-29.6 7.6-7.3 19-7.6 27.3-0.8 6.7 5.5 10.9 17.9 1.6 29.2 4.2 2.1 8.3 4.1 12.8 6.3 0.1-1.2 0.2-2.1 0.2-3 0-12.1 0.2-24.3-0.1-36.4-0.2-8.1 5.9-14.7 14.7-14.6 20.6 0.3 41.2 0.3 61.8 0 9.2-0.1 14.7 7.1 14.6 14.5-0.3 15.9-0.1 31.9-0.1 47.9 0 8.5-5.6 14.1-14.2 14.2-6.8 0.1-13.5 0-20.7 0 0.6 1.5 1 2.8 1.5 4q7.2 19.5 14.3 38.9c0.4 1 1.1 2.4 0.7 3.2-0.7 1.4-1.8 2.9-3.1 3.6-1.7 0.8-3.5 0-4.5-1.7-0.8-1.5-1.4-3.1-2-4.7-5.1-13.6-10.1-27.3-15.2-41-0.4-0.9-1.4-1.9-2.3-2.2-1.8-0.6-1.9 1.1-2.4 2.3q-7.7 21.1-15.5 42.2c-0.3 0.8-0.6 1.7-1 2.4-1.1 2.4-3.2 3.5-5.4 2.7-2.3-0.8-3.4-3.2-2.5-5.7 2.7-7.4 5.4-14.8 8.1-22.1q3.6-9.9 7.2-19.7c0.2-0.7 0.4-1.3 0.6-2.2zm-20.3-15.5c2.7-5.3 5.2-10.2 7.7-15.2 0.4-0.8 0.7-1.5 1.2-2.3 1.4-2.6 3.7-3.4 6-2.2 2.1 1.1 2.9 3.5 1.6 6-3 6-6 12-9.1 18.1-0.3 0.7-0.7 1.4-1 2.2 0.4 0.2 0.6 0.3 0.8 0.3 18.7 0 37.5 0 56.3 0 2.6 0 4.3-1.6 4.6-4.3 0.2-1.9 0.1-3.8 0.1-5.6q0-21.8 0-43.6c0-4-1.8-6.1-5.4-6.1q-31.6 0-63.1 0c-3.3 0-5.4 2.1-5.4 5.3q-0.1 21.6 0 43.1c0 0.7 0.5 1.6 1.1 2 1.4 0.8 2.9 1.4 4.6 2.3zm-32.6 57c0-1.4 0-2.4 0-3.4q0-22.5 0-45.1c0-5.6 2.8-7.3 7.8-4.8 5.8 2.9 11.5 5.8 17.4 8.6 2.4 1.2 4.3 0.9 5.1-1 0.9-2.3-0.7-3.2-2.4-4.1-7.4-3.6-14.9-7.2-22.2-11-5.1-2.7-10.3-3.6-16-3.3-9.3 0.5-16.8 7.2-17.6 16.4-0.4 5.1-0.2 10.2-0.2 15.4 0.1 2.9 1.6 4.4 4.6 5 3.7 0.8 4.5 1.7 4.5 5.5q0 9.5 0 19c0 0.9 0.1 1.8 0.2 2.8 6.3 0 12.4 0 18.8 0zm-9.4-95.9c-6.5 0-11.7 5-11.7 11.4-0.1 6.5 5 11.7 11.4 11.7 6.6 0.1 12-5.1 12-11.5 0-6.4-5.3-11.6-11.7-11.6zm73 4.4q-10.2 0-20.5 0c-0.9 0-1.7 0-2.6-0.1-2.3-0.3-3.8-2-3.9-4.1 0-2.1 1.8-4.1 4.1-4.2 2.6-0.1 5.2 0 7.8 0q18.7 0 37.4 0c3.1 0 5.1 1.7 5.2 4.2 0 2.5-1.9 4.1-5.1 4.2q-1.1 0-2.1 0-10.1 0-20.3 0zm11.6 31.9c-3.4 0-6.8 0-10.1 0-3.6-0.1-5.6-1.7-5.5-4.4 0-2.6 2.1-4.2 5.4-4.2q10.4 0 20.8 0c3.1 0.1 5.1 1.6 5.3 4.1 0.1 2.6-1.9 4.4-5.3 4.5-3.5 0-7.1 0-10.6 0zm0-24.4c3.7 0 7.3-0.1 10.9 0 2.9 0 4.9 1.7 5 4.1 0 2.4-1.8 4.2-4.8 4.3q-11.1 0.1-22.1 0c-3-0.1-4.8-1.9-4.6-4.4 0.1-2.4 2-4 5-4q5.3-0.1 10.6 0z" />
+								</svg>
+								<span class="txt-menu">CHƯƠNG TRÌNH ĐÀO TẠO</span>
+							</a>
+						</li>
+						<li id="nav2_ID8030">
+							<a class="item-link" href="/KetQuaXulyHocvu.aspx" id="A2">
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 13" width="15"
+									height="13">
+									<path id="Shape 4" fill-rule="evenodd" class="s0"
+										d="m7.5 13q-2.4 0-4.8 0c-1.6 0-2.8-1.2-2.7-2.7q0-0.6 0.4-1.2 2.4-3.9 4.8-7.8c0.9-1.4 2.8-1.7 4.1-0.6q0.3 0.3 0.6 0.7 2.3 3.9 4.7 7.7c1 1.6 0 3.5-1.6 3.8q-0.4 0.1-0.8 0.1-2.4 0-4.7 0zm0-1.2q0 0 0 0 2.4 0 4.8 0c0.7 0 1.2-0.4 1.4-1 0.2-0.4 0.1-0.8-0.2-1.2q-2.3-3.8-4.6-7.6c-0.2-0.3-0.4-0.5-0.7-0.7-0.7-0.4-1.6-0.1-2 0.6q-2.4 3.9-4.7 7.8c-0.7 1 0.1 2.2 1.3 2.2 1.6-0.1 3.1-0.1 4.7-0.1zm0.8-7.2c-0.1 1.4-0.2 2.4-0.2 3.5 0 0.3-0.3 0.5-0.6 0.5-0.3 0-0.5-0.2-0.6-0.5q0-1.1-0.1-2.2-0.1-0.5-0.1-1c0-0.6 0.3-0.9 0.8-0.9 0.5 0 0.8 0.3 0.8 0.6zm-0.8 4.5c0.4 0 0.8 0.4 0.8 0.8 0 0.4-0.4 0.7-0.8 0.7-0.4 0-0.8-0.3-0.8-0.7 0-0.4 0.4-0.8 0.8-0.8z" />
+								</svg>
+								<span class="txt-menu">CẢNH BÁO HỌC VỤ</span>
+							</a>
+						</li>
+						<li id="nav2_ID8040">
+							<a class="item-link" href="/wfrmDangKyLopTinChiB1.aspx?Chuyen_nganh=1" id="DangKy">
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 14" width="15"
+									height="14">
+									<path id="Shape 5" fill-rule="evenodd" class="s0"
+										d="m2.4 7q0 1.8 0 3.5c0 1.2 0.9 2.1 2.1 2.1q3.5 0 7 0c1.2 0 2.1-0.9 2.1-2.1q0-2.1 0-4.1c0-0.4 0.2-0.7 0.5-0.8 0.3-0.1 0.6 0 0.7 0.3 0.1 0.1 0.2 0.3 0.2 0.4 0 1.5 0 3.1 0 4.6-0.1 1.5-1.5 3-3.1 3.1-1.3 0-2.6 0-3.9 0-1.3 0-2.6 0-3.9 0-1.5-0.1-3-1.6-3.1-3.1 0-1.3 0-2.7 0-4 0-1.3 0-2.5 0-3.8 0.1-1.5 1.6-3 3.1-3.1 1.5 0 3 0 4.6 0 0.4 0 0.7 0.3 0.7 0.7 0 0.4-0.3 0.7-0.8 0.7q-2 0-4.1 0c-1.2 0-2.1 0.9-2.1 2.2q0 1.7 0 3.4zm12.6-5.1q0 0.8-0.5 1.4-2.9 2.8-5.7 5.7c-0.1 0.1-0.3 0.2-0.5 0.2q-1 0.3-2.1 0.6c-0.7 0.1-1.1-0.3-1-1q0.3-1.1 0.6-2.1c0-0.2 0.1-0.4 0.3-0.5q2.7-2.8 5.5-5.6c1.1-1.1 2.9-0.6 3.3 0.9 0.1 0.1 0.1 0.3 0.1 0.4zm-8.1 6.2c0.6-0.1 1.1-0.2 1.5-0.7 0.9-0.9 1.8-1.8 2.8-2.8 0 0 0.1-0.1 0.1-0.2q-0.4-0.4-0.7-0.8-0.1 0.1-0.2 0.2c-1 1-1.9 1.9-2.9 2.9-0.4 0.4-0.5 0.8-0.6 1.4zm5.5-4.7q0.5-0.5 1-1.1c0.3-0.2 0.2-0.5 0.1-0.7-0.2-0.2-0.5-0.3-0.7-0.1-0.4 0.4-0.8 0.8-1.1 1.2q0.3 0.3 0.7 0.7z" />
+								</svg>
+								<span class="txt-menu">ĐĂNG KÝ HỌC</span>
+							</a>
+							<span class="icon-sub"></span>
+							<ul>
+								<li>
+									<a href="/wfrmDangKyLopTinChiB1.aspx?Chuyen_nganh=1" id="nav2_ID8041"
+										class="item-link">Đăng ký môn học tín chỉ</a>
+									<a href="/wfrmDangKyLopTinChiB1.aspx?Dang_ky_hoc_lai_cai_thien_diem=1"
+										id="nav2_ID8042" class="item-link">Đ.ký thi cải thiên điểm</a>
+
+									<a href="/KetQuaDangKy.aspx" id="nav2_ID8044" class="item-link">Lớp học phần đã
+										đ.ký</a>
+
+
+
+								</li>
+							</ul>
+						</li>
+						<li id="nav2_ID8050">
+							<a class="item-link" href="/HocPhiThanhToanTrucTuyen.aspx">
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 18" width="16"
+									height="18">
+									<path id="Shape 6" fill-rule="evenodd" class="s0"
+										d="m3.1 10.6c0.6-0.7 1.3-1.1 2.2-1.3 0.3 0 0.7-0.1 1 0 0.9 0.2 1.8 0.2 2.7 0.2 0.9-0.1 1.4 0.4 1.6 1.2q0.8-0.3 1.6-0.7 1.4-0.7 2.8-0.2c0.6 0.2 0.9 0.6 1 1.2 0 0.6-0.2 1.2-0.7 1.5q-2.8 1.7-5.6 3.4-0.7 0.4-1.5 0.4-1.5 0-2.9 0 0 0 0 0.1c-0.2 0.1-0.4 0.4-0.6 0.5q-0.9 0.5-1.7 1-0.7 0.3-1-0.4-1-2.5-1.9-5c-0.2-0.4-0.1-0.7 0.3-0.9q0.9-0.5 1.8-1c0.3-0.2 0.6-0.2 0.9 0zm3.9 0.8q1.1 0 2.1 0c0.3 0 0.3-0.1 0.3-0.3 0-0.3 0-0.4-0.3-0.4q-0.3 0-0.7 0c-0.7 0-1.4-0.1-2.1-0.2-1.1-0.1-2 0.3-2.5 1.3-0.1 0.1-0.1 0.3-0.1 0.4q0.5 1.3 1 2.5c0.1 0.2 0.2 0.3 0.4 0.3q1.5 0 3.1 0 0.5 0 1-0.3 2.6-1.5 5.2-3.1 0.2 0 0.3-0.1c0.2-0.3 0.1-0.5-0.1-0.6q-0.9-0.2-1.8 0.2-1.3 0.6-2.6 1.2c-0.2 0.1-0.5 0.3-0.7 0.3-0.8 0-1.6 0-2.5 0 0-0.4 0-0.8 0-1.2zm-5.6 1.1q0.7 2 1.5 4 0.5-0.3 1-0.5c-0.5-1.4-1.1-2.7-1.6-4.1-0.3 0.2-0.6 0.4-0.9 0.6zm5.4-8.1c0-2.4 1.9-4.4 4.3-4.4 2.3 0 4.3 2 4.3 4.4 0 2.5-2 4.5-4.3 4.5-2.4-0.1-4.3-2-4.3-4.5zm4.3 3.2c1.7 0 3.1-1.4 3.1-3.2 0-1.7-1.4-3.2-3.1-3.2-1.7 0-3.1 1.5-3.1 3.2 0 1.8 1.3 3.2 3.1 3.2zm-1-2.4q0.2 0.1 0.5 0.2c0.2 0.1 0.3 0.1 0.4 0.1 0.1 0 0.3-0.1 0.3-0.2 0-0.1-0.1-0.3-0.1-0.3-0.3-0.2-0.5-0.3-0.7-0.4-0.6-0.3-0.8-0.8-0.6-1.3 0.1-0.3 0.3-0.5 0.5-0.6 0.2-0.2 0.3-0.3 0.3-0.6q0-0.1 0-0.2 0.4 0 0.8 0c0.1 0.2-0.1 0.5 0.2 0.6q0.3 0.1 0.6 0.3-0.2 0.4-0.3 0.8-0.3-0.1-0.6-0.2-0.2-0.1-0.4-0.1c0 0.1-0.1 0.1-0.1 0.2-0.1 0.1 0 0.2 0.1 0.2 0.2 0.2 0.4 0.2 0.6 0.3 0.5 0.3 0.8 0.6 0.7 1.2q0 0.7-0.5 1c-0.3 0.1-0.4 0.3-0.3 0.6q0 0 0 0.2-0.4 0-0.9 0c0.2-0.5-0.1-0.6-0.5-0.8-0.4-0.1-0.4-0.2-0.2-0.6q0-0.2 0.1-0.4 0 0 0.1 0z" />
+								</svg>
+								<span class="txt-menu">THANH TOÁN HỌC PHÍ</span>
+							</a>
+							<span class="icon-sub"></span>
+							<ul>
+								<li>
+									<a href="/HocPhiThanhToanTrucTuyen.aspx" id="nav2_ID8051" class="item-link">Thanh
+										toán Online</a>
+									<a href="/HocPhiLichSuGiaoDich.aspx" id="nav2_ID8052" class="item-link">Lịch sử giao
+										dịch</a>
+								</li>
+							</ul>
+						</li>
+						<li id="nav2_ID8100">
+							<a class="item-link" href="/KetQuaHocTap.aspx">
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 16" width="13"
+									height="16">
+									<path id="Shape15" fill-rule="evenodd" class="s0"
+										d="m13 6.8q0 2.5 0 5c0 0.3-0.1 0.5-0.3 0.7q-1.6 1.6-3.2 3.2c-0.3 0.2-0.5 0.3-0.8 0.3q-3.4 0-6.8 0c-1.2 0-1.9-0.7-1.9-1.9q0-6.1 0-12.3c0-1.1 0.7-1.8 1.9-1.8q4.6 0 9.2 0c1.2 0 1.9 0.7 1.9 1.8q0 2.5 0 5zm-1.2 4.6q0-0.1 0-0.2 0-4.7 0-9.4c0-0.5-0.2-0.7-0.7-0.7q-4.6 0-9.1 0c-0.6 0-0.8 0.2-0.8 0.8q0 6.1 0 12.2c0 0.6 0.2 0.8 0.8 0.8q3 0 5.9 0 0.2 0 0.4-0.1 0-0.8 0-1.6c0-1 0.7-1.8 1.9-1.8q0.8 0 1.6 0zm-0.9 1.2c-1.3-0.2-1.8 0.3-1.4 1.3q0.7-0.6 1.4-1.3zm-5.9-3.5c-0.3 0-0.7 0-0.9 0.1-0.2 0.1-0.3 0.5-0.4 0.8q-0.1 0.3-0.2 0.5c-0.2 0.3-0.5 0.5-0.8 0.3-0.3-0.1-0.4-0.4-0.3-0.7q0.7-1.7 1.3-3.4 0.4-0.8 0.7-1.7c0.1-0.3 0.3-0.4 0.6-0.4 0.3 0 0.5 0.1 0.6 0.4q1 2.5 2 5c0.1 0.4 0 0.7-0.3 0.8-0.3 0.1-0.6 0-0.8-0.4q-0.2-0.5-0.4-1c-0.1-0.2-0.2-0.3-0.4-0.3q-0.3 0-0.7 0 0 0 0 0zm0-2.4c-0.2 0.5-0.3 0.9-0.5 1.3 0.4 0 0.7 0 1 0-0.1-0.4-0.3-0.8-0.5-1.3zm3.3-1c-0.5 0-1.2 0.2-1.2-0.6 0-0.7 0.7-0.5 1.2-0.5q0-0.3 0-0.6c0-0.3 0.3-0.6 0.6-0.6 0.3 0 0.5 0.3 0.5 0.6q0 0.2 0 0.6 0.4 0 0.6 0c0.4 0 0.6 0.2 0.6 0.5 0 0.3-0.2 0.6-0.5 0.6-0.6 0-0.6 0-0.7 0.6 0 0.3-0.2 0.6-0.6 0.6-0.3-0.1-0.5-0.3-0.5-0.6q0-0.3 0-0.6z" />
+								</svg>
+								<span class="txt-menu">XEM ĐIỂM HỌC TẬP</span>
+							</a>
+						</li>
+						<li id="nav2_ID8060">
+							<a class="item-link" href="/ThongTinTaiChinh.aspx">
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 13" width="15"
+									height="13">
+									<path id="Shape16" fill-rule="evenodd" class="s0"
+										d="m10.2 5.9q1.1 0.4 2 0.8 1.1 0.3 2.1 0.7c0.5 0.3 0.7 0.6 0.7 1.2q0 1.3 0 2.5 0 0.2 0 0.3c0 0.3-0.2 0.5-0.5 0.5-0.3 0-0.5-0.2-0.6-0.5q0-0.8 0-1.5 0-0.1 0-0.3-0.4 0.2-0.8 0.3c0 0 0 0.2-0.1 0.3q0 0.8 0 1.6 0.1 0.5-0.4 0.7-2.3 1-4.6 0-0.4-0.2-0.4-0.7 0-0.8 0-1.6c0-0.2-0.1-0.3-0.2-0.3-0.3-0.2-0.6-0.2-0.9-0.1-3 0.8-6-1.1-6.4-4.1-0.5-2.8 1.6-5.4 4.5-5.7 2.7-0.2 5.1 1.5 5.6 4 0.1 0.6 0 1.2 0 1.7 0 0.1 0 0.2 0 0.2zm-4.5 3c-0.2-0.9 0-1.2 0.9-1.5q1.1-0.5 2.2-0.9c0.1-0.1 0.2-0.2 0.3-0.3q0.3-1 0.1-2.1c-0.5-2.1-2.7-3.5-4.9-3-2.3 0.5-3.7 2.6-3.2 4.8 0.5 2 2.6 3.4 4.6 3zm8.3-0.4c-0.1-0.1-0.1-0.1-0.1-0.1q-1.7-0.7-3.4-1.4c-0.1 0-0.3 0-0.4 0.1q-1.6 0.6-3.2 1.2-0.1 0.1-0.3 0.1 0.1 0.1 0.2 0.2 1.7 0.6 3.3 1.2c0.1 0.1 0.3 0.1 0.4 0q1.6-0.6 3.2-1.2 0.1 0 0.3-0.1zm-2 1.8q-0.6 0.3-1.1 0.5-0.6 0.2-1.2 0c-0.3-0.2-0.7-0.3-1.1-0.5q0 0.7 0 1.2c0 0.1 0.1 0.2 0.2 0.2q1.5 0.6 3 0c0.1 0 0.2-0.1 0.2-0.2q0-0.5 0-1.2zm-7.3-3.3q-0.3 0-0.5 0c-0.4 0-0.6-0.2-0.6-0.5 0-0.3 0.3-0.5 0.6-0.5q0.5 0 1.1 0c0.2 0 0.3 0 0.3-0.2 0-0.2-0.1-0.3-0.3-0.3q-0.4 0-0.7-0.1c-0.6-0.1-1-0.6-1-1.1 0-0.5 0.3-1 0.8-1.2 0.2-0.1 0.3-0.2 0.3-0.4q-0.1-0.7 0.5-0.7 0.5 0 0.5 0.7 0 0.1 0 0.3 0.2 0 0.4 0c0.4 0 0.6 0.2 0.6 0.5 0 0.3-0.2 0.5-0.5 0.5q-0.6 0-1.2 0c-0.2 0-0.3 0-0.3 0.2 0 0.3 0.1 0.3 0.3 0.3q0.3 0 0.6 0c0.5 0.1 1 0.5 1.1 1 0 0.7-0.3 1.2-0.8 1.4-0.2 0.1-0.3 0.1-0.2 0.3q0 0.2 0 0.3c-0.1 0.3-0.3 0.5-0.6 0.5-0.2 0-0.4-0.2-0.4-0.5q-0.1-0.2 0-0.5z" />
+								</svg>
+								<span class="txt-menu">XEM HỌC PHÍ </span>
+							</a>
+						</li>
+						<li id="nav2_ID8070">
+							<a class="item-link" href="/wfrmDangKyLopTinChiB3.aspx" id="XemLichHocKy">
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 15" width="16"
+									height="15">
+									<path id="Shape17" fill-rule="evenodd" class="s0"
+										d="m11.7 1.2q0-0.3 0-0.6c0-0.3 0.3-0.6 0.6-0.6 0.3 0 0.6 0.2 0.6 0.6q0 0.3 0 0.5c0.4 0.1 0.8 0.1 1.2 0.1 1 0.2 1.9 1.2 1.9 2.2q0 1.7 0 3.4c0 0.4-0.2 0.6-0.6 0.6-0.3 0.1-0.6-0.2-0.6-0.6q0-1.6 0-3.1c0-0.9-0.4-1.4-1.3-1.4q-0.3 0-0.6 0 0 0.3 0 0.6c0 0.4-0.2 0.6-0.6 0.6-0.3 0-0.6-0.2-0.6-0.6q0-0.3 0-0.5c-0.9 0-1.7 0-2.6 0q0 0.2 0 0.5c-0.1 0.4-0.3 0.6-0.6 0.6-0.4 0-0.6-0.3-0.6-0.6q0-0.3 0-0.5-1.3 0-2.6 0c0 0.2 0 0.4-0.1 0.7 0 0.3-0.3 0.4-0.6 0.4-0.3 0-0.5-0.2-0.5-0.5q0-0.2 0-0.4 0-0.1 0-0.2c-0.3 0-0.6-0.1-0.9 0-0.6 0-1 0.5-1 1.1q0 1.5 0 3c0 2 0 3.9 0 5.9-0.1 0.9 0.5 1.5 1.4 1.4 1.4 0 2.8 0 4.2 0 0.3 0 0.6 0.2 0.6 0.6 0 0.2-0.2 0.5-0.4 0.6q-0.2 0-0.3 0-2.2 0-4.3 0c-1.4 0-2.4-1-2.4-2.4q0-4.5 0-9.1c0-1.3 1-2.3 2.4-2.3q0.3 0 0.7 0 0-0.3 0-0.6c0-0.3 0.2-0.6 0.5-0.6 0.3 0 0.6 0.2 0.6 0.5q0.1 0.1 0.1 0.3 0 0.2 0 0.4 1.3 0 2.6 0 0-0.3 0-0.6c0-0.3 0.2-0.6 0.6-0.6 0.3 0 0.5 0.2 0.6 0.6q0 0.3 0 0.6c0.9 0 1.7 0 2.6 0zm0.8 6.7c1.9 0 3.5 1.6 3.5 3.6 0 1.9-1.6 3.5-3.6 3.5-1.9 0-3.5-1.6-3.5-3.6 0-2 1.7-3.5 3.6-3.5zm2.3 3.6c0-1.3-1-2.4-2.3-2.4-1.3 0-2.4 1-2.4 2.3 0 1.3 1 2.4 2.3 2.4 1.3 0 2.4-1 2.4-2.3zm-10.7-5.3c0-0.4 0.2-0.6 0.5-0.6 0.4 0 0.6 0.2 0.6 0.5 0.1 0.4-0.2 0.7-0.5 0.6-0.4 0-0.6-0.2-0.6-0.5zm8.2-0.6c0.3 0 0.6 0.2 0.6 0.5 0 0.4-0.3 0.7-0.6 0.6-0.3 0-0.6-0.2-0.6-0.6 0-0.3 0.3-0.5 0.6-0.5zm-2.6 0c0.4 0 0.6 0.2 0.6 0.6 0 0.3-0.2 0.5-0.5 0.5-0.3 0-0.6-0.2-0.6-0.6 0-0.3 0.2-0.5 0.5-0.5zm-5.6 3.1c0-0.3 0.2-0.6 0.6-0.6 0.3 0 0.6 0.3 0.5 0.6 0 0.3-0.2 0.6-0.5 0.6-0.4 0-0.6-0.3-0.6-0.6zm3.7 0c0 0.3-0.3 0.6-0.6 0.6-0.3 0-0.6-0.3-0.6-0.6 0-0.3 0.3-0.6 0.6-0.6 0.3 0 0.6 0.3 0.6 0.6zm-3.1 2c0.3 0 0.6 0.2 0.5 0.6 0 0.3-0.2 0.5-0.5 0.5-0.4 0-0.6-0.2-0.6-0.5 0-0.4 0.2-0.6 0.6-0.6zm3.1 0.6c0 0.3-0.3 0.5-0.6 0.5-0.3 0-0.6-0.2-0.6-0.6 0-0.3 0.3-0.5 0.6-0.5 0.3 0 0.6 0.2 0.6 0.6zm0-5.2c0 0.4-0.3 0.7-0.6 0.6-0.3 0-0.6-0.2-0.6-0.5 0-0.4 0.3-0.6 0.6-0.6 0.3 0 0.6 0.2 0.6 0.5zm5.3 4.7q0.2 0.1 0.4 0.1c0.3 0.1 0.4 0.3 0.4 0.6-0.1 0.3-0.3 0.5-0.6 0.5q-0.4 0-0.9 0c-0.3 0-0.5-0.2-0.5-0.5q0-0.6 0-1.3c0-0.3 0.2-0.5 0.5-0.5 0.3 0 0.6 0.1 0.6 0.4 0.1 0.2 0 0.5 0.1 0.7z" />
+								</svg>
+								<span class="txt-menu">XEM LỊCH HỌC KỲ </span>
+							</a>
+						</li>
+						<li id="nav2_ID8080">
+							<a class="item-link" href="/wfrmLichHocSinhVienTinChi.aspx" id="XemLichHocTuan">
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 15" width="16"
+									height="15">
+									<path id="Shape18" fill-rule="evenodd" class="s0"
+										d="m11.7 1.2q0-0.3 0-0.6c0-0.3 0.3-0.6 0.6-0.6 0.3 0 0.6 0.2 0.6 0.6q0 0.3 0 0.5c0.4 0.1 0.8 0.1 1.2 0.1 1 0.2 1.9 1.2 1.9 2.2q0 1.7 0 3.4c0 0.4-0.2 0.6-0.6 0.6-0.3 0.1-0.6-0.2-0.6-0.6q0-1.6 0-3.1c0-0.9-0.4-1.4-1.3-1.4q-0.3 0-0.6 0 0 0.3 0 0.6c0 0.4-0.2 0.6-0.6 0.6-0.3 0-0.6-0.2-0.6-0.6q0-0.3 0-0.5c-0.9 0-1.7 0-2.6 0q0 0.2 0 0.5c-0.1 0.4-0.3 0.6-0.6 0.6-0.4 0-0.6-0.3-0.6-0.6q0-0.3 0-0.5-1.3 0-2.6 0c0 0.2 0 0.4-0.1 0.7 0 0.3-0.3 0.4-0.6 0.4-0.3 0-0.5-0.2-0.5-0.5q0-0.2 0-0.4 0-0.1 0-0.2c-0.3 0-0.6-0.1-0.9 0-0.6 0-1 0.5-1 1.1q0 1.5 0 3c0 2 0 3.9 0 5.9-0.1 0.9 0.5 1.5 1.4 1.4 1.4 0 2.8 0 4.2 0 0.3 0 0.6 0.2 0.6 0.6 0 0.2-0.2 0.5-0.4 0.6q-0.2 0-0.3 0-2.2 0-4.3 0c-1.4 0-2.4-1-2.4-2.4q0-4.5 0-9.1c0-1.3 1-2.3 2.4-2.3q0.3 0 0.7 0 0-0.3 0-0.6c0-0.3 0.2-0.6 0.5-0.6 0.3 0 0.6 0.2 0.6 0.5q0.1 0.1 0.1 0.3 0 0.2 0 0.4 1.3 0 2.6 0 0-0.3 0-0.6c0-0.3 0.2-0.6 0.6-0.6 0.3 0 0.5 0.2 0.6 0.6q0 0.3 0 0.6c0.9 0 1.7 0 2.6 0zm0.8 6.7c1.9 0 3.5 1.6 3.5 3.6 0 1.9-1.6 3.5-3.6 3.5-1.9 0-3.5-1.6-3.5-3.6 0-2 1.7-3.5 3.6-3.5zm2.3 3.6c0-1.3-1-2.4-2.3-2.4-1.3 0-2.4 1-2.4 2.3 0 1.3 1 2.4 2.3 2.4 1.3 0 2.4-1 2.4-2.3zm-10.7-5.3c0-0.4 0.2-0.6 0.5-0.6 0.4 0 0.6 0.2 0.6 0.5 0.1 0.4-0.2 0.7-0.5 0.6-0.4 0-0.6-0.2-0.6-0.5zm8.2-0.6c0.3 0 0.6 0.2 0.6 0.5 0 0.4-0.3 0.7-0.6 0.6-0.3 0-0.6-0.2-0.6-0.6 0-0.3 0.3-0.5 0.6-0.5zm-2.6 0c0.4 0 0.6 0.2 0.6 0.6 0 0.3-0.2 0.5-0.5 0.5-0.3 0-0.6-0.2-0.6-0.6 0-0.3 0.2-0.5 0.5-0.5zm-5.6 3.1c0-0.3 0.2-0.6 0.6-0.6 0.3 0 0.6 0.3 0.5 0.6 0 0.3-0.2 0.6-0.5 0.6-0.4 0-0.6-0.3-0.6-0.6zm3.7 0c0 0.3-0.3 0.6-0.6 0.6-0.3 0-0.6-0.3-0.6-0.6 0-0.3 0.3-0.6 0.6-0.6 0.3 0 0.6 0.3 0.6 0.6zm-3.1 2c0.3 0 0.6 0.2 0.5 0.6 0 0.3-0.2 0.5-0.5 0.5-0.4 0-0.6-0.2-0.6-0.5 0-0.4 0.2-0.6 0.6-0.6zm3.1 0.6c0 0.3-0.3 0.5-0.6 0.5-0.3 0-0.6-0.2-0.6-0.6 0-0.3 0.3-0.5 0.6-0.5 0.3 0 0.6 0.2 0.6 0.6zm0-5.2c0 0.4-0.3 0.7-0.6 0.6-0.3 0-0.6-0.2-0.6-0.5 0-0.4 0.3-0.6 0.6-0.6 0.3 0 0.6 0.2 0.6 0.5zm5.3 4.7q0.2 0.1 0.4 0.1c0.3 0.1 0.4 0.3 0.4 0.6-0.1 0.3-0.3 0.5-0.6 0.5q-0.4 0-0.9 0c-0.3 0-0.5-0.2-0.5-0.5q0-0.6 0-1.3c0-0.3 0.2-0.5 0.5-0.5 0.3 0 0.6 0.1 0.6 0.4 0.1 0.2 0 0.5 0.1 0.7z" />
+								</svg>
+								<span class="txt-menu">XEM LỊCH HỌC TUẦN </span>
+							</a>
+						</li>
+
+
+						<li id="nav2_ID8090">
+							<a class="item-link" href="/ThongTinLichThi.aspx" id="XemLichThi">
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 15" width="16"
+									height="15">
+									<path id="Shape 9" fill-rule="evenodd" class="s0"
+										d="m11.7 1.2q0-0.3 0-0.6c0-0.3 0.3-0.6 0.6-0.6 0.3 0 0.6 0.2 0.6 0.6q0 0.3 0 0.5c0.4 0.1 0.8 0.1 1.2 0.1 1 0.2 1.9 1.2 1.9 2.2q0 1.7 0 3.4c0 0.4-0.2 0.6-0.6 0.6-0.3 0.1-0.6-0.2-0.6-0.6q0-1.6 0-3.1c0-0.9-0.4-1.4-1.3-1.4q-0.3 0-0.6 0 0 0.3 0 0.6c0 0.4-0.2 0.6-0.6 0.6-0.3 0-0.6-0.2-0.6-0.6q0-0.3 0-0.5c-0.9 0-1.7 0-2.6 0q0 0.2 0 0.5c-0.1 0.4-0.3 0.6-0.6 0.6-0.4 0-0.6-0.3-0.6-0.6q0-0.3 0-0.5-1.3 0-2.6 0c0 0.2 0 0.4-0.1 0.7 0 0.3-0.3 0.4-0.6 0.4-0.3 0-0.5-0.2-0.5-0.5q0-0.2 0-0.4 0-0.1 0-0.2c-0.3 0-0.6-0.1-0.9 0-0.6 0-1 0.5-1 1.1q0 1.5 0 3c0 2 0 3.9 0 5.9-0.1 0.9 0.5 1.5 1.4 1.4 1.4 0 2.8 0 4.2 0 0.3 0 0.6 0.2 0.6 0.6 0 0.2-0.2 0.5-0.4 0.6q-0.2 0-0.3 0-2.2 0-4.3 0c-1.4 0-2.4-1-2.4-2.4q0-4.5 0-9.1c0-1.3 1-2.3 2.4-2.3q0.3 0 0.7 0 0-0.3 0-0.6c0-0.3 0.2-0.6 0.5-0.6 0.3 0 0.6 0.2 0.6 0.5q0.1 0.1 0.1 0.3 0 0.2 0 0.4 1.3 0 2.6 0 0-0.3 0-0.6c0-0.3 0.2-0.6 0.6-0.6 0.3 0 0.5 0.2 0.6 0.6q0 0.3 0 0.6c0.9 0 1.7 0 2.6 0zm0.8 6.7c1.9 0 3.5 1.6 3.5 3.6 0 1.9-1.6 3.5-3.6 3.5-1.9 0-3.5-1.6-3.5-3.6 0-2 1.7-3.5 3.6-3.5zm2.3 3.6c0-1.3-1-2.4-2.3-2.4-1.3 0-2.4 1-2.4 2.3 0 1.3 1 2.4 2.3 2.4 1.3 0 2.4-1 2.4-2.3zm-10.7-5.3c0-0.4 0.2-0.6 0.5-0.6 0.4 0 0.6 0.2 0.6 0.5 0.1 0.4-0.2 0.7-0.5 0.6-0.4 0-0.6-0.2-0.6-0.5zm8.2-0.6c0.3 0 0.6 0.2 0.6 0.5 0 0.4-0.3 0.7-0.6 0.6-0.3 0-0.6-0.2-0.6-0.6 0-0.3 0.3-0.5 0.6-0.5zm-2.6 0c0.4 0 0.6 0.2 0.6 0.6 0 0.3-0.2 0.5-0.5 0.5-0.3 0-0.6-0.2-0.6-0.6 0-0.3 0.2-0.5 0.5-0.5zm-5.6 3.1c0-0.3 0.2-0.6 0.6-0.6 0.3 0 0.6 0.3 0.5 0.6 0 0.3-0.2 0.6-0.5 0.6-0.4 0-0.6-0.3-0.6-0.6zm3.7 0c0 0.3-0.3 0.6-0.6 0.6-0.3 0-0.6-0.3-0.6-0.6 0-0.3 0.3-0.6 0.6-0.6 0.3 0 0.6 0.3 0.6 0.6zm-3.1 2c0.3 0 0.6 0.2 0.5 0.6 0 0.3-0.2 0.5-0.5 0.5-0.4 0-0.6-0.2-0.6-0.5 0-0.4 0.2-0.6 0.6-0.6zm3.1 0.6c0 0.3-0.3 0.5-0.6 0.5-0.3 0-0.6-0.2-0.6-0.6 0-0.3 0.3-0.5 0.6-0.5 0.3 0 0.6 0.2 0.6 0.6zm0-5.2c0 0.4-0.3 0.7-0.6 0.6-0.3 0-0.6-0.2-0.6-0.5 0-0.4 0.3-0.6 0.6-0.6 0.3 0 0.6 0.2 0.6 0.5zm5.3 4.7q0.2 0.1 0.4 0.1c0.3 0.1 0.4 0.3 0.4 0.6-0.1 0.3-0.3 0.5-0.6 0.5q-0.4 0-0.9 0c-0.3 0-0.5-0.2-0.5-0.5q0-0.6 0-1.3c0-0.3 0.2-0.5 0.5-0.5 0.3 0 0.6 0.1 0.6 0.4 0.1 0.2 0 0.5 0.1 0.7z" />
+								</svg>
+								<span class="txt-menu">XEM LỊCH THI</span>
+							</a>
+						</li>
+						<li id="nav2_ID8110">
+							<a class="item-link" href="/KetQuaRenLuyen.aspx" id="XemDiemRenLuyen">
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 16" width="13"
+									height="16">
+									<path id="Shape 7" fill-rule="evenodd" class="s0"
+										d="m13 6.8q0 2.5 0 5c0 0.3-0.1 0.5-0.3 0.7q-1.6 1.6-3.2 3.2c-0.3 0.2-0.5 0.3-0.8 0.3q-3.4 0-6.8 0c-1.2 0-1.9-0.7-1.9-1.9q0-6.1 0-12.3c0-1.1 0.7-1.8 1.9-1.8q4.6 0 9.2 0c1.2 0 1.9 0.7 1.9 1.8q0 2.5 0 5zm-1.2 4.6q0-0.1 0-0.2 0-4.7 0-9.4c0-0.5-0.2-0.7-0.7-0.7q-4.6 0-9.1 0c-0.6 0-0.8 0.2-0.8 0.8q0 6.1 0 12.2c0 0.6 0.2 0.8 0.8 0.8q3 0 5.9 0 0.2 0 0.4-0.1 0-0.8 0-1.6c0-1 0.7-1.8 1.9-1.8q0.8 0 1.6 0zm-0.9 1.2c-1.3-0.2-1.8 0.3-1.4 1.3q0.7-0.6 1.4-1.3zm-5.9-3.5c-0.3 0-0.7 0-0.9 0.1-0.2 0.1-0.3 0.5-0.4 0.8q-0.1 0.3-0.2 0.5c-0.2 0.3-0.5 0.5-0.8 0.3-0.3-0.1-0.4-0.4-0.3-0.7q0.7-1.7 1.3-3.4 0.4-0.8 0.7-1.7c0.1-0.3 0.3-0.4 0.6-0.4 0.3 0 0.5 0.1 0.6 0.4q1 2.5 2 5c0.1 0.4 0 0.7-0.3 0.8-0.3 0.1-0.6 0-0.8-0.4q-0.2-0.5-0.4-1c-0.1-0.2-0.2-0.3-0.4-0.3q-0.3 0-0.7 0 0 0 0 0zm0-2.4c-0.2 0.5-0.3 0.9-0.5 1.3 0.4 0 0.7 0 1 0-0.1-0.4-0.3-0.8-0.5-1.3zm3.3-1c-0.5 0-1.2 0.2-1.2-0.6 0-0.7 0.7-0.5 1.2-0.5q0-0.3 0-0.6c0-0.3 0.3-0.6 0.6-0.6 0.3 0 0.5 0.3 0.5 0.6q0 0.2 0 0.6 0.4 0 0.6 0c0.4 0 0.6 0.2 0.6 0.5 0 0.3-0.2 0.6-0.5 0.6-0.6 0-0.6 0-0.7 0.6 0 0.3-0.2 0.6-0.6 0.6-0.3-0.1-0.5-0.3-0.5-0.6q0-0.3 0-0.6z" />
+								</svg>
+								<span class="txt-menu">XEM ĐIỂM RÈN LUYỆN </span>
+							</a>
+						</li>
+						<li id="nav2_ID8120">
+							<a class="item-link" href="/ThongTinKhenThuongKyLuatHocBong.aspx" id="XemKhenThuong">
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 14" width="15"
+									height="14">
+									<path id="Shape 504" fill-rule="evenodd" class="s0"
+										d="m3.5 6.4q-0.3 0-0.5 0c-1.1 0-2-0.9-2-1.9q0-1.3 0-2.6c0-1 0.8-1.8 1.8-1.9q1.5 0 3 0c1 0.1 1.8 0.9 1.8 1.9q0 1.4 0 2.6c0 1.1-0.9 1.9-2 1.9q-0.5 0-0.9 0-0.2 0-0.4 0-0.2 0-0.4 0-0.2 0-0.4 0zm0.8-5.1q-0.7 0-1.4 0c-0.4 0-0.5 0.3-0.5 0.6q-0.1 1.3 0 2.6c0 0.3 0.2 0.6 0.6 0.6q0.4 0 0.9 0 0.2 0 0.4 0 0.2 0 0.4 0 0.4 0 0.9 0c0.4 0 0.7-0.3 0.7-0.6q0-1.2 0-2.6c0-0.3-0.2-0.6-0.6-0.6q-0.7 0-1.4 0zm0 12.7q-0.7 0-1.5 0c-1-0.1-1.8-0.9-1.8-1.9q0-0.5 0-0.9 0-0.2 0-0.4v-0.7q0-0.4 0.1-0.9c0.1-0.9 0.9-1.6 1.9-1.6 0.9 0 1.8 0 2.6 0 1.1 0 2 0.8 2 1.9q0 1.3 0 2.6c0 1-0.8 1.8-1.8 1.9q-0.8 0-1.5 0zm-2-2.6q0 0.3 0.1 0.6c0 0.3 0.1 0.7 0.5 0.7q1.4 0 2.8 0c0.4 0 0.6-0.3 0.6-0.6q0-1.3 0-2.6c0-0.3-0.3-0.6-0.7-0.6-0.8 0-1.7 0-2.6 0-0.3 0-0.6 0.1-0.6 0.5q0 0.4 0 0.9 0 0.2 0 0.5v0.6zm8.5 0q-0.7-0.6-1.3-1.2c-0.4-0.4-0.4-0.8-0.1-1.2 0.4-0.3 0.8-0.2 1.2 0.1 0.4 0.4 0.8 0.8 1.3 1.3q0.7-0.7 1.3-1.3c0.5-0.4 1.2-0.3 1.3 0.3 0.1 0.3 0 0.5-0.2 0.7q-0.7 0.7-1.3 1.3 0.5 0.5 1 1 0.2 0.2 0.3 0.3c0.3 0.4 0.3 0.8 0 1.1-0.3 0.3-0.7 0.3-1 0q-0.7-0.6-1.3-1.2 0 0-0.1-0.1-0.3 0.2-0.6 0.5-0.4 0.4-0.7 0.7c-0.4 0.4-0.8 0.4-1.2 0.1-0.3-0.3-0.3-0.8 0.1-1.1 0.4-0.4 0.8-0.8 1.3-1.3zm0.3-8.4c0.9-0.8 1.7-1.6 2.5-2.4 0.5-0.4 1.1-0.3 1.3 0.3q0.1 0.4-0.2 0.7-1.5 1.5-3 3c-0.4 0.3-0.8 0.3-1.1 0q-0.8-0.8-1.5-1.5c-0.4-0.3-0.4-0.7 0-1 0.2-0.3 0.7-0.3 1.1 0q0.2 0.2 0.4 0.4 0.3 0.3 0.5 0.5z" />
+								</svg>
+								<span class="txt-menu">XEM KHEN THƯỞNG, KỶ LUẬT </span>
+							</a>
+						</li>
+						<li id="nav2_ID8130">
+							<a href="https://dev.khaosat.hou.edu.vn/login-portal" id="nav2_DanhGiaGiangVien"
+								class="item-link">
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 14" width="15"
+									height="14">
+									<path id="Shape 505" fill-rule="evenodd" class="s0"
+										d="m12.6 2.8q0-0.9 0-1.8c0-0.3-0.3-0.5-0.6-0.6q-0.2 0-0.3 0-4.7 0-9.4 0c-0.6 0-0.8 0.3-0.8 0.8q0 4.9 0 9.7 0 0.1 0 0.3 0.3 0 0.5 0c0.4 0 0.9 0 1.3 0 0.5 0.1 0.8 0.5 0.9 1q0 0.6 0 1.2 0 0.2 0 0.3 3.4 0 6.7 0 0-1.8 0-3.6-0.2 0-0.3 0c-0.3-0.1-0.6-0.4-0.6-0.7q0-1.3 0-2.5c0-0.5 0.5-1 1.1-1q1.4 0 2.9 0c0.5 0 0.9 0.4 1 0.8 0 0.4 0 0.8 0 1.2q0 0.6 0 1.3c0 0.5-0.2 0.8-0.7 0.9q-0.1 0-0.2 0 0 1.6 0 3.1 0 0.2 0 0.3c-0.1 0.4-0.3 0.5-0.7 0.5-0.3 0-0.6-0.1-0.9-0.1-0.1 0-0.3 0.1-0.4 0.1q-4.1 0-8.2 0-0.3 0-0.4-0.2-1.2-1-2.3-2.1c-0.1-0.1-0.2-0.3-0.2-0.4q0-5.1 0-10.1c0-0.8 0.5-1.2 1.3-1.2q4.7 0 9.5 0c0.8 0 1.3 0.4 1.3 1.2q0 0.8 0 1.5c0 0.2 0 0.3 0.2 0.4 0.4 0.3 0.5 0.8 0.4 1.3-0.2 0.5-0.6 0.9-1.1 0.9q-0.2 0.1-0.5 0c-0.5-0.2-0.9-0.9-0.9-1.5 0.1-0.5 0.6-0.9 1.3-1q0 0 0.1 0zm-5.5 6.9c1.1 0 2 0.8 2 1.8 0 1-0.9 1.8-2 1.8-1.1 0-1.9-0.8-1.9-1.8 0-1 0.8-1.8 1.9-1.8zm-0.3 2c-0.1-0.1-0.2-0.2-0.3-0.2-0.1 0-0.2 0-0.3 0 0 0.1 0 0.2 0 0.3 0.1 0.1 0.2 0.2 0.3 0.3q0.2 0.2 0.5 0 0.4-0.5 0.9-0.9c0.2-0.1 0.3-0.2 0.1-0.4-0.1-0.1-0.3 0-0.4 0.1q-0.4 0.4-0.8 0.8zm1.4-9q-1.3 0-2.6 0c-0.1 0-0.2 0-0.3-0.1 0 0-0.1-0.1-0.1-0.2 0 0 0.1-0.1 0.2-0.2 0 0 0.1 0 0.1 0q2.7 0 5.4 0c0 0 0.1 0 0.1 0 0.1 0.1 0.2 0.1 0.2 0.2 0 0.1 0 0.2-0.1 0.2-0.1 0.1-0.2 0.1-0.3 0.1q-1.3 0-2.6 0zm-5.5 3.5q0-0.3 0-0.6 0-0.2 0.2-0.2 0.6 0 1.2 0 0.3 0 0.3 0.2 0 0.6 0 1.1 0 0.3-0.3 0.3-0.6 0-1.1 0-0.3 0-0.3-0.3 0-0.3 0-0.5zm1.7-2.1q0 0.2 0 0.5 0 0.3-0.3 0.3-0.6 0-1.2 0-0.2 0-0.2-0.3 0-0.5 0-1.1 0-0.2 0.2-0.2 0.6 0 1.2 0 0.3 0 0.3 0.2 0 0.3 0 0.6zm-0.8 5q-0.3 0-0.6 0-0.3 0-0.3-0.3 0-0.5 0-1.1 0-0.3 0.3-0.2 0.5 0 1.1 0 0.3 0 0.3 0.2 0 0.6 0 1.1 0 0.3-0.3 0.3-0.3 0-0.5 0zm-0.9-7.1q0-0.3 0-0.6 0-0.2 0.3-0.2 0.5 0 1.1 0 0.3 0 0.3 0.2 0 0.6 0 1.1 0 0.3-0.3 0.3-0.6 0-1.1 0-0.3 0-0.3-0.3 0-0.3 0-0.5zm5.1 2.8q-1.2 0-2.3 0c-0.2 0-0.3-0.1-0.3-0.3 0-0.2 0.1-0.2 0.3-0.2q2.3 0 4.6 0c0.2 0 0.4 0 0.4 0.2 0 0.2-0.2 0.3-0.4 0.3q-1.1 0-2.3 0zm-0.6 0.7q0.9 0 1.7 0c0.2 0 0.3 0 0.3 0.2 0 0.2-0.1 0.2-0.3 0.2q-1.7 0-3.4 0c-0.2 0-0.3 0-0.3-0.2 0-0.2 0.1-0.2 0.3-0.2q0.9 0 1.7 0zm0 2.1q0.9 0 1.7 0c0.2 0 0.3 0 0.3 0.2 0 0.2-0.1 0.2-0.3 0.2q-1.7 0-3.4 0c-0.2 0-0.3 0-0.3-0.2 0-0.2 0.1-0.2 0.3-0.2q0.9 0 1.7 0zm0-3.7q-0.8 0-1.6 0c-0.1 0-0.1 0-0.2-0.1q-0.1-0.1-0.2-0.2c0.1-0.1 0.1-0.2 0.2-0.2q0.5 0 0.9 0 1.3 0 2.5 0c0.2 0 0.4 0 0.4 0.2 0 0.3-0.2 0.3-0.4 0.3q-0.8 0-1.6 0zm0-2.2q-0.8 0-1.7 0c-0.2 0-0.3 0-0.3-0.2 0-0.2 0.1-0.2 0.3-0.2q1.7 0 3.4 0c0.2 0 0.3 0 0.3 0.2 0 0.2-0.1 0.2-0.3 0.2q-0.8 0-1.7 0zm0 4.7q0.9 0 1.7 0c0.2 0 0.3 0 0.3 0.2 0 0.2-0.1 0.3-0.3 0.3q-1.7 0-3.4 0c-0.2 0-0.3-0.1-0.3-0.3 0-0.2 0.1-0.2 0.3-0.2q0.9 0 1.7 0zm0 2.5q-0.8 0-1.7 0c-0.2 0-0.3 0-0.3-0.2 0-0.2 0.1-0.2 0.3-0.2q1.7 0 3.4 0c0.2 0 0.3 0 0.3 0.2 0 0.2-0.1 0.2-0.3 0.2q-0.8 0-1.7 0z" />
+								</svg>
+								<span class="txt-menu">ĐÁNH GIÁ GIẢNG VIÊN </span>
+							</a>
+						</li>
+
+
+
+						<li id="nav2_ID8170">
+							<a class="item-link" href="/GuiYkien.aspx" id="GuiYKien">
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 16" width="13"
+									height="16">
+									<path id="Shape 506" fill-rule="evenodd" class="s0"
+										d="m3.8 4.8c-0.4-0.6-0.8-1.2-1.1-1.7q1-0.4 2-0.7c0.2-0.1 0.4-0.2 0.6-0.5q0.6-0.9 1.2-1.9c0.3 0.5 0.7 1 0.9 1.5 0.3 0.6 0.8 0.9 1.4 1.1 0.5 0.1 1 0.3 1.5 0.5-0.3 0.6-0.7 1.1-1.1 1.7 1 0 1.8 0.4 2.5 1.2 1.2 1.2 1.6 2.7 1.1 4.4-0.4 1.7-1.4 2.7-3 3.1-0.5 0.1-1.1 0.1-1.6 0.1q-0.2 0-0.4 0.2-1.4 1-2.8 2-0.1 0.1-0.2 0.2c0-0.8 0-1.6 0-2.4q-0.4 0-0.7 0c-1 0-1.9-0.3-2.7-1.1-1.2-1.2-1.7-2.7-1.2-4.5 0.4-1.7 1.5-2.8 3.1-3.2q0.1 0 0.2 0 0.1 0 0.3 0zm1.9 7.9c0 0.5 0 1 0 1.5 0.3-0.3 0.7-0.5 1-0.8 0.7-0.6 1.4-0.8 2.3-0.8 1.3 0.1 2.5-0.8 2.9-2.2 0.5-1.4 0.2-2.9-0.9-3.9-0.6-0.6-1.3-0.8-2.2-0.8q0 1.2 0 2.4-1.1-0.4-2.1-0.8-0.2-0.1-0.4 0-0.9 0.3-1.8 0.6-0.2 0.1-0.4 0.2c0-0.8 0-1.6 0-2.4q-0.3 0-0.5 0c-1.5 0.2-2.7 1.7-2.7 3.3-0.1 2.1 1.3 3.7 3.2 3.7q0.7 0 1.6 0zm0.8-11.1q-0.4 0.7-0.8 1.3-0.1 0.1-0.3 0.2-0.7 0.3-1.3 0.5 0.3 0.6 0.7 1.1 0.2 0.3 0.2 0.7 0 0.6 0 1.4c0.4-0.2 0.8-0.3 1.1-0.5q0.4-0.1 0.8 0 0.5 0.3 1.1 0.5 0-0.8 0-1.4 0-0.4 0.2-0.7 0.3-0.5 0.7-1.1-0.6-0.2-1.3-0.5-0.2-0.1-0.3-0.3-0.4-0.5-0.8-1.2zm1.5 8.5q0-0.5 0-0.9 0.5 0 0.9 0 0 0.4 0 0.9-0.4 0-0.9 0zm-3.9 0q0-0.5 0-0.9 0.4 0 0.8 0 0 0.4 0 0.9-0.4 0-0.8 0zm2.8-0.9q0 0.4 0 0.9-0.4 0-0.8 0 0-0.5 0-0.9 0.4 0 0.8 0z" />
+								</svg>
+								<span class="txt-menu">GỬI Ý KIẾN </span>
+							</a>
+						</li>
+						<li id="nav2_ID8180">
+							<a class="item-link" href="/UpdateThongTinCaNhan.aspx" id="SuaThongTinCaNhan">
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 14" width="13"
+									height="14">
+									<path id="Shape 507" fill-rule="evenodd" class="s0"
+										d="m0 7c0-1.7 0-3.3 0-5 0-1.1 1-2 2.2-2q3.5 0 7.1 0c1.2 0 2.2 1 2.2 2q0 1.8 0 3.5c0 0.4-0.3 0.6-0.6 0.6-0.3 0-0.5-0.2-0.5-0.5q0-0.2 0-0.3 0-1.5 0-3c0-0.8-0.5-1.2-1.3-1.2q-3.3 0-6.7 0c-0.8 0-1.3 0.4-1.3 1.2q0 4.7 0 9.4c0 0.8 0.5 1.2 1.3 1.2q0.8 0 1.7 0c0.4 0 0.6 0.2 0.6 0.6 0 0.3-0.2 0.5-0.6 0.5q-1 0-1.9 0c-1.1 0-2.2-0.9-2.2-2 0-1.7 0-3.3 0-5zm13 2.1c0 0.4-0.1 0.8-0.4 1.1q-1.6 1.5-3.2 3-0.1 0.1-0.3 0.2-1.1 0.3-2.2 0.6c-0.5 0.1-0.9-0.3-0.7-0.7q0.3-1.1 0.6-2.1 0.1-0.2 0.3-0.4 1.5-1.4 3-2.9c0.9-0.9 2.5-0.5 2.8 0.8q0.1 0.2 0.1 0.4zm-5.4 3.5c0.6-0.1 1.2-0.2 1.6-0.7 0.3-0.4 0.7-0.7 1.1-1.1q0.2-0.2 0.4-0.4-0.4-0.4-0.7-0.8-1.1 1-2.1 2 0 0 0 0.1-0.2 0.4-0.3 0.9zm4-3.1c0.2-0.1 0.3-0.4 0.2-0.6 0-0.1-0.2-0.3-0.4-0.3-0.2-0.1-0.4 0-0.6 0.2q0.4 0.4 0.8 0.7zm-5.9-5.1q-1.4 0-2.8 0c-0.4 0-0.6-0.2-0.6-0.6 0-0.3 0.2-0.5 0.6-0.5q2.8 0 5.7 0c0.4 0 0.6 0.2 0.6 0.5 0 0.4-0.2 0.6-0.6 0.6q-1.4 0-2.9 0zm0 2.2q-1.4 0-2.8 0c-0.4 0-0.6-0.2-0.6-0.6 0-0.3 0.2-0.5 0.6-0.5q2.8 0 5.7 0c0.4 0 0.6 0.2 0.6 0.5 0 0.4-0.2 0.6-0.6 0.6q-1.4 0-2.9 0zm-1.1 2.1q-0.9 0-1.7 0c-0.4 0-0.6-0.2-0.6-0.5-0.1-0.3 0.2-0.5 0.6-0.6q0.5 0 1 0 1.2 0 2.4 0c0.5 0.1 0.8 0.5 0.6 0.8q-0.2 0.3-0.5 0.3-0.9 0-1.8 0z" />
+								</svg>
+								<span class="txt-menu">SỬA TT CÁ NHÂN</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="z8wmxgimlk">
+
+					<header class="r648o7cxzf">
+						<span class="q8uucert2e_hb">
+    <svg viewBox="64 64 896 896" focusable="false" fill="currentColor" width="1em" height="1em" data-icon="menu-fold" aria-hidden="true"><path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"></path></svg>
+    </span>
+						<span class="q8uucert2e_hb q8uucert2e_hb-active">
+    <svg viewBox="64 64 896 896" focusable="false" fill="currentColor" width="1em" height="1em" data-icon="menu-unfold" aria-hidden="true"><path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM142.4 642.1L298.7 519a8.84 8.84 0 000-13.9L142.4 381.9c-5.8-4.6-14.4-.5-14.4 6.9v246.3a8.9 8.9 0 0014.4 7z"></path></svg>
+    </span>
+						<div class="mciirlkbmb">
+							<a href="#" class="mciirlkbmb_n">
+								<img src="/img/bell-regular.png" alt="">
+								<span class="n">0</span>
+							</a>
+							<a href="/Forum/MessageInbox.aspx" class="mciirlkbmb_n">
+								<img src="/img/icon-mess.png" alt="">
+								<span class="n">0</span>
+							</a>
+							<div class="dropdown">
+								<div class="btn-dropdown" btn-dropdown>
+									<div class="avt"><img src="\Images\no_avatar.png" id="HeaderSV_image_ulr" /></div>
+										<div class="na"><span id="HeaderSV_lblHo_ten">Nguyễn Thị Thơ</span></div>
+										<div class="ct"><span id="HeaderSV_lblMa_sv">22A1001D0307</span></div>
+									</div>
+									<div class="dropdown-content">
+										<div class="it"><a href="/ChangePassword.aspx">Thay đổi mật khẩu</a></div>
+										<div class="it"><a href="/logout.aspx">Đăng xuất</a></div>
+									</div>
+								</div>
+							</div>
+					</header>
+					<section class="g5shb7ss5p">
+						<div class="g5shb7ss5p_b">
+							<span id="lblHeadLich">XEM LỊCH HỌC THEO TUẦN</span>
+						</div>
+						<div class="nj5cb7ll1o"><span id="Label1">Tuần học:</span>
+							<div class="dropdown">
+								<select name="cmbTuan_thu" id="cmbTuan_thu" class="form-control input-sm">
+	<option value="02/17/2025-02/23/2025">Tuần thứ: 8 (Từ ng&#224;y 17/02/2025 đến ng&#224;y 23/02/2025)</option>
+	<option value="02/24/2025-03/02/2025">Tuần thứ: 9 (Từ ng&#224;y 24/02/2025 đến ng&#224;y 02/03/2025)</option>
+	<option value="03/03/2025-03/09/2025">Tuần thứ: 10 (Từ ng&#224;y 03/03/2025 đến ng&#224;y 09/03/2025)</option>
+	<option value="03/10/2025-03/16/2025">Tuần thứ: 11 (Từ ng&#224;y 10/03/2025 đến ng&#224;y 16/03/2025)</option>
+	<option value="03/17/2025-03/23/2025">Tuần thứ: 12 (Từ ng&#224;y 17/03/2025 đến ng&#224;y 23/03/2025)</option>
+	<option value="03/24/2025-03/30/2025">Tuần thứ: 13 (Từ ng&#224;y 24/03/2025 đến ng&#224;y 30/03/2025)</option>
+	<option value="03/31/2025-04/06/2025">Tuần thứ: 14 (Từ ng&#224;y 31/03/2025 đến ng&#224;y 06/04/2025)</option>
+	<option value="04/07/2025-04/13/2025">Tuần thứ: 15 (Từ ng&#224;y 07/04/2025 đến ng&#224;y 13/04/2025)</option>
+	<option value="04/14/2025-04/20/2025">Tuần thứ: 16 (Từ ng&#224;y 14/04/2025 đến ng&#224;y 20/04/2025)</option>
+	<option value="04/21/2025-04/27/2025">Tuần thứ: 17 (Từ ng&#224;y 21/04/2025 đến ng&#224;y 27/04/2025)</option>
+	<option value="04/28/2025-05/04/2025">Tuần thứ: 18 (Từ ng&#224;y 28/04/2025 đến ng&#224;y 04/05/2025)</option>
+	<option value="05/05/2025-05/11/2025">Tuần thứ: 19 (Từ ng&#224;y 05/05/2025 đến ng&#224;y 11/05/2025)</option>
+	<option value="05/12/2025-05/18/2025">Tuần thứ: 20 (Từ ng&#224;y 12/05/2025 đến ng&#224;y 18/05/2025)</option>
+	<option value="05/19/2025-05/25/2025">Tuần thứ: 21 (Từ ng&#224;y 19/05/2025 đến ng&#224;y 25/05/2025)</option>
+	<option value="05/26/2025-06/01/2025">Tuần thứ: 22 (Từ ng&#224;y 26/05/2025 đến ng&#224;y 01/06/2025)</option>
+	<option value="06/02/2025-06/08/2025">Tuần thứ: 23 (Từ ng&#224;y 02/06/2025 đến ng&#224;y 08/06/2025)</option>
+	<option value="06/09/2025-06/15/2025">Tuần thứ: 24 (Từ ng&#224;y 09/06/2025 đến ng&#224;y 15/06/2025)</option>
+	<option selected="selected" value="06/16/2025-06/22/2025">Tuần thứ: 25 (Từ ng&#224;y 16/06/2025 đến ng&#224;y 22/06/2025)</option>
+	<option value="06/23/2025-06/29/2025">Tuần thứ: 26 (Từ ng&#224;y 23/06/2025 đến ng&#224;y 29/06/2025)</option>
+	<option value="06/30/2025-07/06/2025">Tuần thứ: 27 (Từ ng&#224;y 30/06/2025 đến ng&#224;y 06/07/2025)</option>
+	<option value="07/07/2025-07/13/2025">Tuần thứ: 28 (Từ ng&#224;y 07/07/2025 đến ng&#224;y 13/07/2025)</option>
+	<option value="07/14/2025-07/20/2025">Tuần thứ: 29 (Từ ng&#224;y 14/07/2025 đến ng&#224;y 20/07/2025)</option>
+	<option value="07/21/2025-07/27/2025">Tuần thứ: 30 (Từ ng&#224;y 21/07/2025 đến ng&#224;y 27/07/2025)</option>
+	<option value="07/28/2025-08/03/2025">Tuần thứ: 31 (Từ ng&#224;y 28/07/2025 đến ng&#224;y 03/08/2025)</option>
+	<option value="08/04/2025-08/10/2025">Tuần thứ: 32 (Từ ng&#224;y 04/08/2025 đến ng&#224;y 10/08/2025)</option>
+	<option value="08/11/2025-08/17/2025">Tuần thứ: 33 (Từ ng&#224;y 11/08/2025 đến ng&#224;y 17/08/2025)</option>
+	<option value="08/18/2025-08/24/2025">Tuần thứ: 34 (Từ ng&#224;y 18/08/2025 đến ng&#224;y 24/08/2025)</option>
+	<option value="08/25/2025-08/31/2025">Tuần thứ: 35 (Từ ng&#224;y 25/08/2025 đến ng&#224;y 31/08/2025)</option>
+
+</select>
+							</div>
+						</div>
+						<div class="table-responsive mb-2">
+							<div>
+								<table class="GridViewStyle" cellspacing="0" cellpadding="10" rules="all" border="1"
+									id="grdViewLopDangKy" width="100%">
+									<tr class="HeaderStyle">
+										<th scope="col">Ca học</th>
+										<th scope="col">Thứ 2, 16/06/2025</th>
+										<th scope="col">Thứ 3, 17/06/2025</th>
+										<th scope="col">Thứ 4, 18/06/2025</th>
+										<th scope="col">Thứ 5, 19/06/2025</th>
+										<th scope="col">Thứ 6, 20/06/2025</th>
+										<th scope="col">Thứ 7, 21/06/2025</th>
+										<th scope="col">Chủ nhật, 22/06/2025</th>
+									</tr>
+									<tr class="RowStyle">
+										<td align="center" valign="middle" width="3%">S&#225;ng</td>
+										<td align="center" valign="middle" width="10%">&nbsp;</td>
+										<td align="center" valign="middle" width="10%">&nbsp;</td>
+										<td align="center" valign="middle" width="10%">&nbsp;</td>
+										<td align="center" valign="middle" width="10%">&nbsp;</td>
+										<td align="center" valign="middle" width="10%">&nbsp;</td>
+										<td align="center" valign="middle" width="10%">
+											<p class='hocthuong'>Quản lý dự án CNTT<br>Tiết học: 1-4 <br> Mã lớp: K22-7E1037.22-3.2425-2.2_LT
+												<br> GV: Trần Tiến Dũng <br> Phòng: KGĐ FITHOU-P24
+												<br> Hình thức học: Trực tiếp</p>
+										</td>
+										<td align="center" valign="middle" width="10%">&nbsp;</td>
+									</tr>
+									<tr class="AltRowStyle">
+										<td align="center" valign="middle" width="3%">Tối</td>
+										<td align="center" valign="middle" width="10%">&nbsp;</td>
+										<td align="center" valign="middle" width="10%">
+											<p class='nghihoc'>Quản lý dự án CNTT<br>Tiết học: Nghỉ học <br> Mã lớp: K22-7E1037.22-3.2425-2.2_LT
+												<br> GV: Trần Tiến Dũng <br> Phòng: KGĐ FITHOU-P24
+												<br> Hình thức học: Trực tiếp</p>
+										</td>
+										<td align="center" valign="middle" width="10%">&nbsp;</td>
+										<td align="center" valign="middle" width="10%">&nbsp;</td>
+										<td align="center" valign="middle" width="10%">&nbsp;</td>
+										<td align="center" valign="middle" width="10%">&nbsp;</td>
+										<td align="center" valign="middle" width="10%">&nbsp;</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</section>
+
+					<br />
+					<div id="footer">
+						Copyright © 2025 Thien An Technology
+					</div>
+
+				</div>
+			</div>
+		</main>
+	</form>
+</body>
+
+</html>
